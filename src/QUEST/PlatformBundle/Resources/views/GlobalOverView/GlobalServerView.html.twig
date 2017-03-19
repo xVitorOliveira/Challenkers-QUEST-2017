@@ -1,0 +1,108 @@
+{%  extends "QUESTPlatformBundle:GameMaster:ServerView.html.twig" %}
+{% block Head %} {{ parent() }} {% endblock %}
+{% block Body %}
+    <div class="container">
+        <h1> Global View : {{ server.getServerName }} </h1>
+        {% block Arianne %} {{ parent()}} {% endblock %}
+        <p><ul class="nav nav-tabs">
+            <li class="active"><a>Moyennes Serveur:</a></li>
+            <li><a>Knights Moyenne:{{ mKnight }}</a></li>
+            <li><a>Knights Moyenne:{{ mKnight }}</a></li>
+            <li><a>Healers Moyenne:{{ mHealer }}</a></li>
+            <li><a>Mages Moyenne:{{ mMage }}</a></li>
+            <li><a>Rogues Moyenne:{{ mRogue }}</a></li>
+        </ul></p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <u><h3> TOP 10 Server :</h3></u>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        {% set i = 0 %}
+                        <th>Place :</th>
+                        <th>Player Name :</th>
+                        <th>Level :</th>
+                        <th>Class :</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in meritants %}
+                        {% set i = i + 1 %}
+                        <tr><td>{{ i }}</td><td>{{ player.playerName }}</td><td>{{ player.playerLVL }}</td><td>{{ player.classe }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <u><h3> Knights TOP5 :</h3></u>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player Name :</th>
+                        <th>Level :</th>
+                        <th>Class :</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in tKnight %}
+                        <tr><td>{{ player.playerName }}</td><td>{{ player.playerLVL }}</td><td>{{ player.classe }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <u><h3>Healers TOP5 :</h3></u>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player Name :</th>
+                        <th>Level :</th>
+                        <th>Class :</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in tHealer %}
+                        <tr><td>{{ player.playerName }}</td><td>{{ player.playerLVL }}</td><td>{{ player.classe }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <u><h3>Mages TOP5 :</h3></u>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player Name :</th>
+                        <th>Level :</th>
+                        <th>Class :</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in tMage %}
+                        <tr><td>{{ player.playerName }}</td><td>{{ player.playerLVL }}</td><td>{{ player.classe }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <u><h3>Rogues TOP5</h3></u>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Player Name :</th>
+                        <th>Level :</th>
+                        <th>Class :</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in tRogue %}
+                        <tr><td>{{ player.playerName }}</td><td>{{ player.playerLVL }}</td><td>{{ player.classe }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

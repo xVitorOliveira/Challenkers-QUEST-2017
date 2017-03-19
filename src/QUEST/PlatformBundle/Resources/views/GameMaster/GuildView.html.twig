@@ -1,0 +1,47 @@
+{%  extends "QUESTPlatformBundle:GameMaster:ServerView.html.twig" %}
+{% block Head %} {{ parent() }} {% endblock %}
+{% block Body %}
+    <div class="container">
+{% block Info %} {{ parent() }}  > {{ guild.guildName }} <h2>{{ guild.guildName }}</h2>{% endblock %}
+        <p><ul class="nav nav-tabs">
+            <li class="active"><a>Moyenne Guild = {{ moyenne }}</a></li>
+            <li><a>Moyenne des Knights = {{ mKnight }}</a></li>
+            <li><a>Moyenne des Healers = {{ mHealer }}</a></li>
+            <li><a>Moyenne des Mages {{ mMage }}</a></li>
+            <li><a>Moyenne des Rogues = {{ mRogue }}</a></li>
+        </ul></p>
+        <br>
+        <p><h4>Membres Meritants</h4></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Player Name :</th>
+                    <th>Level :</th>
+                    <th>Class :</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in meritants %}
+                <tr><td>{{player.playerName }}</td><td>{{  player.playerLVL  }}</td><td>{{ player.classe }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <p><h4>Membres Moins Meritants</h4></p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Player Name :</th>
+                <th>Level :</th>
+                <th>Class :</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in moinsMeritants %}
+                <tr><td>{{player.playerName }}</td><td>{{  player.playerLVL  }}</td><td>{{ player.classe }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

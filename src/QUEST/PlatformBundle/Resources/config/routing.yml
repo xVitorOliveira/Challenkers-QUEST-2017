@@ -1,0 +1,19 @@
+quest_platform_homepage:
+    path:      /platform
+    defaults: { _controller: QUESTPlatformBundle:GameMaster:index }
+
+quest_platform_serverview:
+    path:      /platform/server/{id}
+    defaults: { _controller: QUESTPlatformBundle:GameMaster:viewServer }
+
+quest_platform_guildview:
+    path:      /platform/server/{serverId}/guild/{guildId}
+    defaults: { _controller: QUESTPlatformBundle:GameMaster:viewGuild }
+
+quest_platform_addinfo:
+    path:      /platform/add
+    defaults: { _controller: QUESTPlatformBundle:GameMaster:addInfoBd }
+
+quest_platform_globalServer:
+    path:      /globalview/server/{id}
+    defaults: { _controller: QUESTPlatformBundle:GlobalOverView:serverView }

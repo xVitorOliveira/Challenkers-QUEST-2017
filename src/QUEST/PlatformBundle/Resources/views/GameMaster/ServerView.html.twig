@@ -1,0 +1,17 @@
+{%  extends "QUESTPlatformBundle:GameMaster:ListServerView.html.twig" %}
+{% block Head %} {{ parent() }} {% endblock %}
+{% block Body %}
+    <div class="container">
+    {% block Info %}
+        <u> <h1>{{ server.serverName }} </h1></u>      {% block Arianne %} {{ parent()}} <a href="http://localhost/Symfony/web/app_dev.php/platform/server/ {{ server.getId }} "> > {{ server.serverName }} </a> {% endblock %}
+    {% endblock %}
+        <p><ul class="nav nav-tabs">
+                 <li class="active"><a>Choisissez une Guilde :</a></li>
+                {% for guild in guilds %}
+                    <li><a href="http://localhost/Symfony/web/app_dev.php/platform/server/{{ server.id }}/guild/{{ guild.id }}">{{ guild.guildName }}</li></a>
+                {% endfor %}
+        </ul></p>
+        <p><strong>Note:</strong> Appuyez <a href="http://localhost/Symfony/web/app_dev.php/platform/add">ICI</a> pour remplir la BD si ce n'est pas encore fait !</p>
+</div>
+    {% block Footer %} {{ parent() }} {% endblock %}
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    {% block Head %}
+    <head>
+        <title>Quest</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            footer {
+                background-color: #f2f2f2;
+                padding: 25px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    {% endblock %}
+    {%  block Body %}
+    <body>
+        <div class="container">
+            <h1>Choisissez votre serveur :</h1>   {% block Arianne %}<a href="http://localhost/Symfony/web/app_dev.php/platform"> > Servers </a> {% endblock %}
+            <p><ul class="nav nav-tabs">
+                    <li class="active"><a>Servers Online :</a> </li>
+                {% for server in servers %}
+                    <li><a href="http://localhost/Symfony/web/app_dev.php/platform/server/{{ server.id }}">{{ server.serverName }} Platform </li></a>
+                    <li> <a href="http://localhost/Symfony/web/app_dev.php/globalview/server/{{ server.id }}">{{ server.serverName }} GlobalView</li></a>
+                {% endfor %}
+            </ul> </p>
+            <p><strong>Note:</strong> Platform permet d'acceder aux guilds en standalone pendant que le global donne + d'infos générales sur le serveur.</p>
+            <p>Servez vous du fil d'arianne pour revenir dans une vue.</p>
+        </div>
+        {% block Footer %}
+        <footer class="container-fluid text-center">
+            <p>-- Bundle Made By Oliveira Vitor --</p>
+        </footer>
+        {% endblock %}
+    </body>
+    {% endblock %}
+</html>
+
+<!-- OLIVEIRA VITOR 2017 Stage DEV WEB BACK END
